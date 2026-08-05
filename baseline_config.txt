@@ -1,0 +1,16 @@
+Building configuration...
+
+Current configuration:
+!
+frr version 8.4_git
+frr defaults traditional
+hostname frrouting-frr-1
+no ipv6 forwarding
+!
+ip route 0.0.0.0/0 192.168.122.1
+!
+interface eth0
+ ip address 192.168.122.10/24
+exit
+!
+end
