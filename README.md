@@ -12,10 +12,12 @@ Python/Netmiko-based toolkit for automated network configuration backup and drif
 ## Architecture
 
 [Your PC] --SSH--> [FRR Router in GNS3/Docker, virtual lab]
-     |
-     +-- backup_config.py --> backups/*.txt
-     +-- check_drift.py --> compares against baseline_config.txt --> logs/*.log
-     +-- run_drift_check.sh (Bash wrapper, scheduled via cron)
+|
++-- backup_config.py --> backups/.txt
++-- check_drift.py --> compares against baseline_config.txt --> logs/.log
++-- run_drift_check.sh (Bash wrapper, scheduled via cron)
+
+## How to run it
 
 ## How to run it
 
@@ -26,9 +28,20 @@ Python/Netmiko-based toolkit for automated network configuration backup and drif
 5. `./run_drift_check.sh` — runs the check and logs the result
 6. Optionally schedule via cron: `0 * * * * /path/to/run_drift_check.sh`
 
+
 ## Example output
 
-[paste your actual DRIFT DETECTED output here as a code block]
+DRIFT DETECTED:
+--- baseline
++++ current
+@@ -8,6 +8,7 @@
+no ipv6 forwarding
+!
+ip route 0.0.0.0/0 192.168.122.1
++ip route 10.0.0.0/24 192.168.122.1
+!
+interface eth0
+ip address 192.168.122.10/24
 
 ## What I'd add with more time
 
