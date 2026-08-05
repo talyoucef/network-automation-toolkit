@@ -1,21 +1,13 @@
 from netmiko import ConnectHandler
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 device = {
     "device_type": "linux",
-    "host": "192.168.122.10",
-    "username": "root",
-    "password": "frrlab123",
+    "host": os.getenv("FRR_HOST"),
+    "username": os.getenv("FRR_USER"),
+    "password": os.getenv("FRR_PASSWORD"),
 }
-
-
-'''
-connection = ConnectHandler( 
-    device_type="linux",
-    host="192.168.122.10",
-    username= "root",
-    password="frrlab123",
-    )
-'''
 
 connection = ConnectHandler(**device)
 
