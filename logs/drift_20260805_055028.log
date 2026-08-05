@@ -1,0 +1,12 @@
+DRIFT DETECTED:
+--- baseline
++++ current
+@@ -8,6 +8,7 @@
+ no ipv6 forwarding
+ !
+ ip route 0.0.0.0/0 192.168.122.1
++ip route 10.0.0.0/24 192.168.122.1
+ !
+ interface eth0
+  ip address 192.168.122.10/24
+Drift check completed at Wed Aug  5 05:50:29 AM CEST 2026
